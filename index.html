@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossroads Technologies, LLC — Where Talent Meets Innovation</title>
+  <meta name="description" content="Crossroads Technologies sits at the crossroads between talent, innovation, and the marketplace. Browser extensions, automation tools, and developer utilities.">
+  <meta property="og:title" content="Crossroads Technologies">
+  <meta property="og:description" content="At the crossroads between talent, innovation, and the marketplace.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://crossroadtech.com">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9781;</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-alt: #0f0f23;
+      --bg-card: #16213e;
+      --border: #1e2a45;
+      --text: #f0f0f5;
+      --text-muted: #8888a0;
+      --accent: #4ecca3;
+      --accent-glow: rgba(78, 204, 163, 0.12);
+      --gradient-start: #4ecca3;
+      --gradient-end: #3ba0d6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Typography ─────────────────────────────────────────── */
+    h1, h2, h3 { letter-spacing: -0.02em; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Navigation ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 26, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      transition: background 0.3s;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-mark {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--bg);
+    }
+
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: transform 0.2s !important;
+    }
+    .nav-cta:hover { transform: scale(1.04); }
+
+    .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 120px 24px 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-glow);
+      border: 1px solid rgba(78, 204, 163, 0.2);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(78, 204, 163, 0.25); text-decoration: none; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); text-decoration: none; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-muted);
+      font-size: 13px;
+      opacity: 0.6;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Sections ──────────────────────────────────────────── */
+    section { padding: 100px 0; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── About ─────────────────────────────────────────────── */
+    .about { background: var(--bg-alt); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(78, 204, 163, 0.3);
+    }
+
+    .about-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-glow);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .about-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .about-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+
+    /* ── Products ──────────────────────────────────────────── */
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      transition: border-color 0.3s;
+    }
+
+    .product-card:hover { border-color: rgba(78, 204, 163, 0.3); }
+
+    .product-info h3 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .product-info p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .product-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .tag {
+      background: var(--accent-glow);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .product-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .product-mockup {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--bg) 0%, var(--bg-card) 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+    }
+
+    /* ── Stats ─────────────────────────────────────────────── */
+    .stats {
+      background: var(--bg-alt);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-item p { color: var(--text-muted); font-size: 14px; font-weight: 500; margin-top: 4px; }
+
+    /* ── Principles ────────────────────────────────────────── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .principle {
+      display: flex;
+      gap: 16px;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+
+    .principle:hover { transform: translateX(4px); }
+
+    .principle-num {
+      font-size: 32px;
+      font-weight: 900;
+      color: rgba(78, 204, 163, 0.2);
+      line-height: 1;
+      min-width: 40px;
+    }
+
+    .principle h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .principle p { color: var(--text-muted); font-size: 13px; line-height: 1.6; }
+
+    /* ── Contact / CTA ─────────────────────────────────────── */
+    .cta {
+      text-align: center;
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(59, 160, 214, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    footer p { color: var(--text-muted); font-size: 13px; }
+    footer a { color: var(--text-muted); margin: 0 12px; font-size: 13px; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── Scroll Animations ─────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    /* ── Mobile ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 26, 0.98);
+        padding: 20px 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-toggle { display: block; }
+
+      .about-grid { grid-template-columns: 1fr; }
+      .product-card { grid-template-columns: 1fr; padding: 32px; }
+      .product-visual { order: -1; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .principles-grid { grid-template-columns: 1fr; }
+
+      .hero { padding: 100px 24px 60px; min-height: auto; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <span class="nav-mark">CT</span>
+        Crossroads Technologies
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#principles">Principles</a>
+        <a href="#contact" class="nav-cta">Get in Touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge reveal">Technology Company</div>
+      <h1 class="reveal stagger-1">Where talent meets<br><span class="gradient">innovation and the marketplace.</span></h1>
+      <p class="reveal stagger-2">Crossroads Technologies sits at the intersection of skilled engineering, forward-thinking product design, and real market demand. We build browser extensions, automation tools, and developer utilities that bridge the gap between what's possible and what people actually need.</p>
+      <div class="hero-buttons reveal stagger-3">
+        <a href="#products" class="btn btn-primary">See Our Work</a>
+        <a href="mailto:info@crossroadtech.com" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+    <div class="scroll-hint">&#8595; Scroll to explore</div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What We Do</span>
+        <h2>Three roads. One destination.</h2>
+        <p>We bring together the talent to build it, the innovation to make it better, and the marketplace to put it in your hands.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal stagger-1">
+          <div class="about-icon">&#127919;</div>
+          <h3>Talent</h3>
+          <p>Deep engineering expertise in browser internals, system automation, and full-stack deployment. We build what others outsource.</p>
+        </div>
+        <div class="about-card reveal stagger-2">
+          <div class="about-icon">&#9889;</div>
+          <h3>Innovation</h3>
+          <p>We don't rehash what exists. Every product solves a real gap — browser extensions, automation pipelines, and developer tools designed from first principles.</p>
+        </div>
+        <div class="about-card reveal stagger-3">
+          <div class="about-icon">&#128200;</div>
+          <h3>Marketplace</h3>
+          <p>Shipped to Chrome Web Store, Edge Add-ons, and Firefox AMO. We take ideas from concept to paying customers across every major platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal stagger-1">
+          <h3>3</h3>
+          <p>Browser Stores</p>
+        </div>
+        <div class="stat-item reveal stagger-2">
+          <h3>24/7</h3>
+          <p>Automated Monitoring</p>
+        </div>
+        <div class="stat-item reveal stagger-3">
+          <h3>0%</h3>
+          <p>Tracking or Ads</p>
+        </div>
+        <div class="stat-item reveal stagger-4">
+          <h3>&lt;1s</h3>
+          <p>Load Times</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Products</span>
+        <h2>Shipped and running.</h2>
+        <p>Production software solving real problems today.</p>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-info reveal-left">
+          <h3>Extension Janitor</h3>
+          <p>Your browser accumulates junk. Orphaned extension entries, stale caches, heavyweight add-ons grinding everything to a halt. Extension Janitor finds the mess, scores your browser health, and cleans it up.</p>
+          <div class="product-tags">
+            <span class="tag">Chrome</span>
+            <span class="tag">Edge</span>
+            <span class="tag">Firefox</span>
+            <span class="tag">Free + Pro</span>
+          </div>
+          <a href="https://codewarrior4life.com/extensions/extension-janitor/" class="btn btn-primary">Learn More &rarr;</a>
+        </div>
+        <div class="product-visual reveal-right">
+          <div class="product-mockup">&#128736;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="about" id="principles">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">How We Build</span>
+        <h2>Principles, not platitudes.</h2>
+      </div>
+      <div class="principles-grid">
+        <div class="principle reveal stagger-1">
+          <span class="principle-num">01</span>
+          <div>
+            <h3>Privacy by default</h3>
+            <p>We don't track users, sell data, or inject analytics. If it doesn't serve the user, it doesn't ship.</p>
+          </div>
+        </div>
+        <div class="principle reveal stagger-2">
+          <span class="principle-num">02</span>
+          <div>
+            <h3>Honest pricing</h3>
+            <p>Free tiers that are genuinely useful. Paid tiers that are genuinely worth it. No dark patterns.</p>
+          </div>
+        </div>
+        <div class="principle reveal stagger-3">
+          <span class="principle-num">03</span>
+          <div>
+            <h3>Ship fast, fix faster</h3>
+            <p>Small releases, tight feedback loops. We'd rather ship something useful today than something perfect never.</p>
+          </div>
+        </div>
+        <div class="principle reveal stagger-4">
+          <span class="principle-num">04</span>
+          <div>
+            <h3>Own the stack</h3>
+            <p>Minimal dependencies. Direct integrations. When a third party gets in the way, we build around it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="reveal">Meet us at the crossroads.</h2>
+      <p class="reveal stagger-1">Got a project, a partnership idea, or just want to say hello? We read every email.</p>
+      <a href="mailto:info@crossroadtech.com" class="btn btn-primary reveal stagger-2">info@crossroadtech.com</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Crossroads Technologies, LLC. All rights reserved.</p>
+      <div style="margin-top: 8px;">
+        <a href="https://codewarrior4life.com">CodeWarrior4Life</a>
+        <a href="mailto:info@crossroadtech.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Reveal -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(10, 10, 26, 0.95)';
+      } else {
+        nav.style.background = 'rgba(10, 10, 26, 0.85)';
+      }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
