@@ -17,7 +17,7 @@
   <meta name="twitter:description" content="At the crossroads between talent, innovation, and the marketplace. Browser extensions, automation tools, and developer utilities.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Crossroads Technologies, LLC">
-  <meta name="keywords" content="browser extensions, automation tools, developer utilities, Extension Janitor, AudioBook Maker, LandLeads, Chrome extensions, software company">
+  <meta name="keywords" content="browser extensions, automation tools, developer utilities, Extension Janitor, AudioBook Maker, LandLeads, Terminal Copy Paste, Chrome extensions, CLI tools, software company">
   <link rel="canonical" href="https://crossroadtech.com">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9781;</text></svg>">
   <script type="application/ld+json">
@@ -534,6 +534,7 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .principles-grid { grid-template-columns: 1fr; }
       .coming-soon-grid { grid-template-columns: 1fr !important; }
+      .coming-soon-grid .stagger-3 { grid-column: 1; }
 
       .hero { padding: 100px 24px 60px; min-height: auto; }
       section { padding: 60px 0; }
@@ -652,13 +653,33 @@
         </div>
       </div>
 
+      <!-- Terminal Copy Paste -->
+      <div class="product-card reveal" style="margin-bottom: 32px;">
+        <div class="product-info reveal-left">
+          <h3>Terminal Copy Paste</h3>
+          <p>Terminals can't paste images. AI coding tools need image paths, not image data. TCP makes Ctrl+V smart — when you have an image in your clipboard and you're in a terminal, it pastes the file path instead. Zero config, auto-detects your screenshot folder and terminal windows.</p>
+          <div class="product-tags">
+            <span class="tag">Windows</span>
+            <span class="tag">CLI Tools</span>
+            <span class="tag">AI Workflow</span>
+            <span class="tag">Free</span>
+          </div>
+          <a href="https://github.com/CodeWarrior4Life/TerminalCopyPaste/releases/latest" class="btn btn-primary">Download &rarr;</a>
+        </div>
+        <div class="product-visual reveal-right">
+          <div class="product-mockup" style="padding: 40px; background: linear-gradient(135deg, #0f0f23 0%, #16213e 50%, #1a1a2e 100%);">
+            <img src="assets/tcp-icon.svg" alt="Terminal Copy Paste" width="240" height="240" style="border-radius: 20%;">
+          </div>
+        </div>
+      </div>
+
       <!-- Coming Soon Products -->
       <div class="section-header reveal" style="margin-top: 60px;">
         <span class="section-label">Coming Soon</span>
         <h2>In the pipeline.</h2>
       </div>
 
-      <div class="coming-soon-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div class="coming-soon-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
         <div class="product-card reveal stagger-1" style="display: block; padding: 36px;">
           <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
             <img src="assets/audiobook-maker-icon.svg" alt="AudioBook Maker" width="36" height="36" style="border-radius: 8px;">
