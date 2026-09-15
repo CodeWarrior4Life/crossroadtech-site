@@ -161,7 +161,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px;
+      width: min(600px, 100%);
       height: 600px;
       background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
       pointer-events: none;
@@ -363,6 +363,11 @@
       position: relative;
     }
 
+    .product-mockup img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .product-mockup {
       width: 100%;
       max-width: 320px;
@@ -442,7 +447,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 500px;
+      width: min(500px, 100%);
       height: 500px;
       background: radial-gradient(circle, rgba(59, 160, 214, 0.06) 0%, transparent 70%);
       pointer-events: none;
@@ -738,7 +743,7 @@
           runs in your browser, and answers a single question well.</p>
       </div>
 
-      <div class="tools-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <div class="tools-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 20px;">
         <a class="product-card reveal stagger-1" href="https://bigrigmath.com" style="display: block; padding: 28px; text-decoration: none; color: inherit;">
           <h3 style="font-size: 19px; font-weight: 800; margin-bottom: 10px;">Big Rig Math</h3>
           <p style="color: var(--text-muted); font-size: 13px; line-height: 1.7; margin-bottom: 16px;">Free, plain-English hours-of-service tools for truck drivers: an interactive split sleeper berth planner, a 70-hour/8-day recap calculator, and an axle weight and tandem slide calculator.</p>
