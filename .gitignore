@@ -1,0 +1,25 @@
+# --- Security (Lattice Standard) ---
+.env
+.env.*
+!.env.example
+!.env.template
+CLAUDE.md
+GEMINI.md
+AGENTS.md
+.claude/
+.gemini/
+.cursor/
+credentials.md
+credentials.json
+credentials.yaml
+*.key
+*.pem
+*.secret
+active-work.md
+
+# --- Static site / macOS ---
+.DS_Store
+._*
+Thumbs.db
+*.log
+.tmp/
